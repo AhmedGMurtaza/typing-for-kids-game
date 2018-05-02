@@ -1,0 +1,15 @@
+{
+  "name": "typing-for-kids-game",
+  "version": "1.0.0",
+  "description":
+    "typing for kids game using reactjs + animate.css (inspired by Kent.c work)\n",
+  "keywords": ["react", "redux", "game", "html5"],
+  "homepage": "https://codesandbox.io/s/vyy1127nx5",
+  "main": "index.js",
+  "dependencies": {
+    "react-dom": "latest",
+    "react": "latest",
+    "prop-types": "15.6.0",
+    "animate.css": "3.5.2"
+  }
+}
