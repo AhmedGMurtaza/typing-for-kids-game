@@ -13,7 +13,7 @@ class GuessBoard extends Component {
     isDone: false
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     const { words, currentWordIndex, inputValue, errorsCount } = this.state;
     const input = e.target.value;
     const currentWord = words[currentWordIndex];
@@ -27,7 +27,7 @@ class GuessBoard extends Component {
 
       // if input value equals current value go to next word
       if (currentWord === input) {
-        this.setState(prev => {
+        this.setState((prev) => {
           return {
             currentWordIndex: prev.currentWordIndex + 1,
             inputValue: ""
@@ -47,7 +47,7 @@ class GuessBoard extends Component {
       if (errorsCount === 10) {
         this.gameOver();
       } else {
-        this.setState(prev => {
+        this.setState((prev) => {
           return {
             letterMatched: false,
             inputValue: prev.inputValue,
@@ -60,6 +60,10 @@ class GuessBoard extends Component {
 
   restart = () => {
     this.setState({
+      currentWordIndex: 0,
+      words: this.props.words,
+      lettersMatched: false,
+      inputValue: "",
       isDone: false,
       errorsCount: 0
     });
@@ -81,7 +85,7 @@ class GuessBoard extends Component {
       isDone,
       errorsCount
     } = this.state;
-    const errorBarStyles = { width: `${errorsCount / 10 * 100}%` };
+    const errorBarStyles = { width: `${(errorsCount / 10) * 100}%` };
     const na = [...words[currentWordIndex]];
     const modifiedValue = na.map((letter, index) => {
       return letter === inputValue[index] ? (
@@ -118,11 +122,11 @@ class GuessBoard extends Component {
 }
 
 GuessBoard.proptypes = {
-  words: PropTypes.arrayOf(PropTypes.string)  
+  words: PropTypes.arrayOf(PropTypes.string)
 };
 
 GuessBoard.defaultProps = {
-  words: ['M.Subhan','Ahmed']
-}
+  words: ["M.Subhan", "Ahmed"]
+};
 
 export default GuessBoard;
